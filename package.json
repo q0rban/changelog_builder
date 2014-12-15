@@ -1,0 +1,14 @@
+{
+  "name": "changelog_builder",
+  "version": "0.0.0",
+  "description": "Create a Changelog from a Github Repo",
+  "author": "q0rban",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "github": "~0.2.3",
+    "lodash": "~2.4.1",
+    "commander": "~2.5.0",
+    "nconf": "~0.7.1",
+    "prompt": "~0.2.14"
+  }
+}

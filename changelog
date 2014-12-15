@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -e
+
+node parser setup
+
+if [[ -z $1 ]]; then
+  echo -n "Specify the starting tag: "
+  read TAG
+else
+  TAG=$1
+fi
+
+HEADER="#### Changelog for $TAG"
+
+if [[ -n $2 ]]; then
+  TAG="$1..$2"
+  HEADER="$HEADER\n*Previous tag: $2*"
+fi
+
+echo -e "$HEADER"
+
+git --no-pager log --reverse --no-merges --format='* %s' "$TAG" | node parser parse
