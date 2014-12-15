@@ -43,7 +43,9 @@ function createChangelog(log) {
 
 program
   .version('0.0.1')
-  .usage('./changelog [starting-tag] [ending-tag]');
+  .usage('[starting-tag] [ending-tag]');
+
+program._name = './changelog';
 
 program
   .command('setup')
