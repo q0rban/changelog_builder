@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
-node parser setup
+# The directory this script is in.
+REAL_PATH=`readlink -f "${BASH_SOURCE[0]}"`
+SCRIPT_DIR=`dirname "$REAL_PATH"`
+PARSER="node $SCRIPT_DIR/parser"
+
+$PARSER setup --quiet
 
 if [[ -z $1 ]]; then
   echo -n "Specify the starting tag: "
@@ -19,4 +24,4 @@ fi
 
 echo -e "$HEADER"
 
-git --no-pager log --reverse --no-merges --format='* %s' "$TAG" | node parser parse
+git --no-pager log --reverse --no-merges --format='* %s' "$TAG" | $PARSER parse
