@@ -15,11 +15,11 @@ else
   TAG=$1
 fi
 
-HEADER="#### Changelog for $TAG"
-
 if [[ -n $2 ]]; then
   TAG="$1..$2"
-  HEADER="$HEADER\n*Previous tag: $2*"
+  HEADER="#### Changelog for $2\n*Previous tag: $1*"
+else
+  HEADER="#### Changelog"
 fi
 
 echo -e "$HEADER"
