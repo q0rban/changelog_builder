@@ -2,8 +2,7 @@
 set -e
 
 # The directory this script is in.
-REAL_PATH=`readlink -f "${BASH_SOURCE[0]}"`
-SCRIPT_DIR=`dirname "$REAL_PATH"`
+SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd -P)"
 PARSER="node $SCRIPT_DIR/parser"
 
 $PARSER setup --quiet
